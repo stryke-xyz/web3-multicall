@@ -1,7 +1,7 @@
 {
-  "name": "web3-multicall",
+  "name": "@dopex-io/web3-multicall",
   "version": "0.0.1",
-  "description": "A web3 library to make multiple calls via a single eth_call",
+  "description": "A library to do multiple calls via a single eth_call using web3.",
   "main": "dist/index.js",
   "author": {
     "name": "witherblock",
@@ -11,9 +11,11 @@
   "license": "MIT",
   "private": false,
   "source": "src/index.ts",
+  
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "microbundle": "^0.13.3",
