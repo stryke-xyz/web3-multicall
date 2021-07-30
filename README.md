@@ -2,6 +2,20 @@
 
 A library to do multiple calls via a single `eth_call` using [web3](https://github.com/ChainSafe/web3.js).
 
+## Installation
+
+- via yarn
+
+```bash
+yarn add @dopex-io/web3-multicall
+```
+
+- via npm
+
+```bash
+npm i @dopex-io/web3-multicall
+```
+
 ## Usage
 
 ### Basic
