@@ -1,0 +1,29 @@
+{
+  "name": "web3-multicall",
+  "version": "0.0.1",
+  "description": "A web3 library to make multiple calls via a single eth_call",
+  "main": "dist/index.js",
+  "author": {
+    "name": "witherblock",
+    "email": "wb@dopex.io",
+    "url": "https://github.com/witherblock"
+  },
+  "license": "MIT",
+  "private": false,
+  "source": "src/index.ts",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.3",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "web3": "^1.5.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
