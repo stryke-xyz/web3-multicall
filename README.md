@@ -1,5 +1,7 @@
 # web3-mulitcall
 
+[![npm version](https://badge.fury.io/js/%40dopex-io%2Fweb3-multicall.svg)](https://badge.fury.io/js/%40dopex-io%2Fweb3-multicall)
+
 A library to do multiple calls via a single `eth_call` using [web3](https://github.com/ChainSafe/web3.js).
 
 ## Installation
