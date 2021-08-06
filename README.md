@@ -20,71 +20,118 @@ npm i @dopex-io/web3-multicall
 
 ## Usage
 
-### Basic
+> [Contract Reference](/src/contract/Multicall.sol)
+
+### Constructing
+
+- With `chainId`
+
+  ```js
+  import Multicall from '@dopex-io/web3-multicall';
+
+  import erc20Abi from './abi/erc20.json';
+
+  async function main() {
+    const web3 = new Web3(provider /* Your Web3 provider here */);
+
+    const multicall = new Multicall({
+      chainId: 1,
+      provider: 'Your Web3 provider here',
+    });
+
+    ...
+  }
+
+  main()
+  ```
+
+- With custom Multicall address
+
+  ```js
+  import Multicall from '@dopex-io/web3-multicall';
+
+  import erc20Abi from './abi/erc20.json';
+
+  async function main() {
+    const web3 = new Web3(provider /* Your Web3 provider here */);
+
+    const multicall = new Multicall({
+      multicallAddress: "The address of the deployed multicall contract",
+      provider: 'Your Web3 provider here',
+    });
+
+    ...
+  }
+
+  main();
+  ```
+
+### Aggregating
 
 ```js
-import Multicall from '@dopex-io/web3-multicall';
+const dpxContract = new web3.eth.Contract(dpxAddress, erc20Abi);
 
-import erc20Abi from './abi/erc20.json';
+const balances = await multicall.aggregate([
+  dpxContract.methods.balanceOf('Address 1'),
+  dpxContract.methods.balanceOf('Address 2'),
+  multicall.getEthBalance('Address 3'),
+]);
 
-const dpxAddress = '0xeec2be5c91ae7f8a338e1e5f3b5de49d07afdc81';
-
-async function main() {
-  const web3 = new Web3(provider /* Your Web3 HTTP provider here */);
-
-  const multicall = new Multicall({
-    chainId: 1,
-    provider: 'Your Web3 HTTP provider here',
-  });
-
-  const dpxContract = new web3.eth.Contract(dpxAddress, erc20Abi);
-
-  const balances = await multicall.aggregate([
-    dpxContract.methods.balanceOf('Address 1'),
-    dpxContract.methods.balanceOf('Address 2'),
-    dpxContract.methods.balanceOf('Address 3'),
-  ]);
-
-  console.log('DPX balance of Address 1', balances[0]);
-  console.log('DPX balance of Address 2', balances[1]);
-  console.log('DPX balance of Address 3', balances[2]);
-}
-
-main();
+console.log('DPX balance of Address 1', balances[0]);
+console.log('DPX balance of Address 2', balances[1]);
+console.log('ETH balance of Address 3', balances[2]);
 ```
 
-### With custom Multicall address
+### Helper Functions
 
-```js
-import Multicall from '@dopex-io/web3-multicall';
+- `getEthBalance`
+  Gets the ETH balance of an address
 
-import erc20Abi from './abi/erc20.json';
+  ```js
+  const ethBalance = multicall.getEthBalance('address');
+  ```
 
-const dpxAddress = '0xeec2be5c91ae7f8a338e1e5f3b5de49d07afdc81';
+- `getBlockHash`
+  Gets the block hash
 
-async function main() {
-  const web3 = new Web3(provider /* Your Web3 HTTP provider here */);
+  ```js
+  const blockHash = multicall.getBlockHash(blockNumber);
+  ```
 
-  const multicall = new Multicall({
-    multicallAddress: 'The address of the deployed multicall contract',
-    provider: 'Your Web3 HTTP provider here',
-  });
+- `getLastBlockHash`
+  Gets the last blocks hash
 
-  const dpxContract = new web3.eth.Contract(dpxAddress, erc20Abi);
+  ```js
+  const lastBlockHash = multicall.getLastBlockHash();
+  ```
 
-  const balances = await multicall.aggregate([
-    dpxContract.methods.balanceOf('Address 1'),
-    dpxContract.methods.balanceOf('Address 2'),
-    dpxContract.methods.balanceOf('Address 3'),
-  ]);
+- `getCurrentBlockTimestamp`
+  Gets the current block timestamp
 
-  console.log('DPX balance of Address 1', balances[0]);
-  console.log('DPX balance of Address 2', balances[1]);
-  console.log('DPX balance of Address 3', balances[2]);
-}
+  ```js
+  const currentBlockTimestamp = multicall.getCurrentBlockTimestamp();
+  ```
 
-main();
-```
+- `getCurrentBlockDifficulty`
+  Gets the current block difficulty
+
+  ```js
+  const currentBlockDifficulty = multicall.getCurrentBlockDifficulty();
+  ```
+
+- `getCurrentBlockGasLimit`
+  Gets the current block gas limit
+
+  ```js
+  const currentBlockGasLimit = multicall.getCurrentBlockGasLimit();
+  ```
+
+- `getCurrentBlockCoinbase`
+  Gets the current block coinbase
+
+  ```js
+  const currentBlockCoinbase = multicall.getCurrentBlockCoinbase();
+  ```
 
 ## License
 

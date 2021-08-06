@@ -1,13 +1,14 @@
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
 import { Contract } from 'web3-eth-contract';
+import { provider } from 'web3-core';
 
 import { CHAIN_ID_TO_MULTICALL_ADDRESS } from './constants';
 import mulitcallAbi from './abi/Multicall.json';
 
 interface ConstructorArgs {
   chainId?: number;
-  provider: string;
+  provider: provider;
   multicallAddress?: string;
 }
 
@@ -62,5 +63,33 @@ export default class Multicall {
 
       return result.length === 1 ? result[0] : result;
     });
+  }
+
+  getEthBalance(address: string): string {
+    return this.multicall.methods.getEthBalance(address);
+  }
+
+  getBlockHash(blockNumber: string | number): string {
+    return this.multicall.methods.getBlockHash(blockNumber);
+  }
+
+  getLastBlockHash(): string {
+    return this.multicall.methods.getLastBlockHash();
+  }
+
+  getCurrentBlockTimestamp(): string {
+    return this.multicall.methods.getCurrentBlockTimestamp();
+  }
+
+  getCurrentBlockDifficulty(): string {
+    return this.multicall.methods.getCurrentBlockDifficulty();
+  }
+
+  getCurrentBlockGasLimit(): string {
+    return this.multicall.methods.getCurrentBlockGasLimit();
+  }
+
+  getCurrentBlockCoinbase(): string {
+    return this.multicall.methods.getCurrentBlockCoinbase();
   }
 }
