@@ -9,6 +9,10 @@
     "email": "wb@dopex.io",
     "url": "https://github.com/witherblock"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dopex-io/web3-multicall"
+  },
   "license": "MIT",
   "private": false,
   "scripts": {
