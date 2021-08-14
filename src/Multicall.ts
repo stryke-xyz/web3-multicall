@@ -65,31 +65,31 @@ export default class Multicall {
     });
   }
 
-  getEthBalance(address: string): string {
+  getEthBalance(address: string) {
     return this.multicall.methods.getEthBalance(address);
   }
 
-  getBlockHash(blockNumber: string | number): string {
+  getBlockHash(blockNumber: string | number) {
     return this.multicall.methods.getBlockHash(blockNumber);
   }
 
-  getLastBlockHash(): string {
+  getLastBlockHash() {
     return this.multicall.methods.getLastBlockHash();
   }
 
-  getCurrentBlockTimestamp(): string {
+  getCurrentBlockTimestamp() {
     return this.multicall.methods.getCurrentBlockTimestamp();
   }
 
-  getCurrentBlockDifficulty(): string {
+  getCurrentBlockDifficulty() {
     return this.multicall.methods.getCurrentBlockDifficulty();
   }
 
-  getCurrentBlockGasLimit(): string {
+  getCurrentBlockGasLimit() {
     return this.multicall.methods.getCurrentBlockGasLimit();
   }
 
-  getCurrentBlockCoinbase(): string {
+  getCurrentBlockCoinbase() {
     return this.multicall.methods.getCurrentBlockCoinbase();
   }
 }
