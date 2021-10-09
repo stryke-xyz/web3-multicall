@@ -52,7 +52,7 @@ export default class Multicall {
 
     return returnData.map((hex: string, index: number) => {
       const types = calls[index]._method.outputs.map(
-        (o: any) => (o.internalType !== o.type) ? o : o.type
+        (o: any) => ((o.internalType !== o.type) && (o.internalType !== undefined)) ? o : o.type
       );
 
       let result = this.web3.eth.abi.decodeParameters(types, hex);
