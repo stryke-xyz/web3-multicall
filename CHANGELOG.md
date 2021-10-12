@@ -1,8 +1,12 @@
 # web3-multicall
 
-## 0.1.2
+## 0.1.3
 
 - Allow proper usage of internal types in result
+
+## 0.1.2
+
+- Skipped
 
 ## 0.1.1
 

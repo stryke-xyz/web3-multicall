@@ -1,6 +1,6 @@
 {
   "name": "@dopex-io/web3-multicall",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A library to do multiple calls via a single eth_call using web3.",
   "main": "dist/index.js",
   "source": "src/index.ts",
