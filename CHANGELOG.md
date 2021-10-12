@@ -1,5 +1,9 @@
 # web3-multicall
 
+## 0.1.4
+
+- Updated web3 to 1.6.0 and updated other dependencies
+
 ## 0.1.3
 
 - Allow proper usage of internal types in result
