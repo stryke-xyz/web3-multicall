@@ -22,6 +22,8 @@ npm i @dopex-io/web3-multicall
 
 > [Contract Reference](/src/contract/Multicall.sol)
 
+[Default Supported Networks](./SUPPORTED_NETWORKS.md)
+
 ### Constructing
 
 - With `chainId`
