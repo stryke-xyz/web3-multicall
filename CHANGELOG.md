@@ -1,5 +1,14 @@
 # web3-multicall
 
+## 0.1.7
+
+- Add a parameters option to the aggregate function
+- Update all dependencies
+
+## 0.1.6
+
+- Update all dependencies
+
 ## 0.1.5
 
 - Added Arbitrum One support
