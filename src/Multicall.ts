@@ -37,7 +37,7 @@ export default class Multicall {
     );
   }
 
-  async aggregate(calls: any[]) {
+  async aggregate(calls: any[], parameters = {}) {
     const callRequests = calls.map((call) => {
       const callData = call.encodeABI();
       return {
@@ -48,11 +48,11 @@ export default class Multicall {
 
     const { returnData } = await this.multicall.methods
       .aggregate(callRequests)
-      .call();
+      .call(parameters);
 
     return returnData.map((hex: string, index: number) => {
-      const types = calls[index]._method.outputs.map(
-        (o: any) => ((o.internalType !== o.type) && (o.internalType !== undefined)) ? o : o.type
+      const types = calls[index]._method.outputs.map((o: any) =>
+        o.internalType !== o.type && o.internalType !== undefined ? o : o.type
       );
 
       let result = this.web3.eth.abi.decodeParameters(types, hex);
