@@ -1,5 +1,10 @@
 # web3-multicall
 
+## 0.1.8
+
+- Add an option for defaultBlock to the multicall contract
+- Update all dependencies (updated web3 to 1.7.x)
+
 ## 0.1.7
 
 - Add a parameters option to the aggregate function
