@@ -39,6 +39,7 @@ npm i @dopex-io/web3-multicall
     const multicall = new Multicall({
       chainId: 1,
       provider: 'Your Web3 provider here',
+      defaultBlock: 1000 /* Optional */
     });
 
     ...
@@ -60,6 +61,7 @@ npm i @dopex-io/web3-multicall
     const multicall = new Multicall({
       multicallAddress: "The address of the deployed multicall contract",
       provider: 'Your Web3 provider here',
+      defaultBlock: 1000 /* Optional */
     });
 
     ...
