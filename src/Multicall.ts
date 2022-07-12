@@ -9,6 +9,7 @@ import mulitcallAbi from './abi/Multicall.json';
 interface ConstructorArgs {
   chainId?: number;
   provider: provider;
+  defaultBlock?: number | '';
   multicallAddress?: string;
 }
 
@@ -16,7 +17,12 @@ export default class Multicall {
   web3: Web3;
   multicall: Contract;
 
-  constructor({ chainId, provider, multicallAddress }: ConstructorArgs) {
+  constructor({
+    chainId,
+    provider,
+    multicallAddress,
+    defaultBlock,
+  }: ConstructorArgs) {
     this.web3 = new Web3(provider);
 
     const _multicallAddress = multicallAddress
@@ -35,6 +41,8 @@ export default class Multicall {
       mulitcallAbi as AbiItem[],
       _multicallAddress
     );
+
+    if (defaultBlock) this.multicall.defaultBlock = defaultBlock;
   }
 
   async aggregate(calls: any[], parameters = {}) {
