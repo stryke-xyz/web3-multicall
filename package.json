@@ -1,7 +1,7 @@
 {
   "name": "@dopex-io/web3-multicall",
   "version": "0.1.8",
-  "description": "A library to do multiple calls via a single eth_call using web3.",
+  "description": "A library to do multiple calls via a single eth_call using web3.js",
   "main": "dist/index.js",
   "source": "src/index.ts",
   "author": {
@@ -23,10 +23,11 @@
   "devDependencies": {
     "microbundle": "^0.15.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "web3": "^1.0.0"
   },
-  "dependencies": {
-    "web3": "^1.7.4"
+  "peerDependencies": {
+    "web3": "^1.0.0"
   },
   "prettier": {
     "singleQuote": true
