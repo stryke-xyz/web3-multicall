@@ -1,5 +1,9 @@
 # web3-multicall
 
+## 0.1.9
+
+- Move web3.js to a peer dependency
+
 ## 0.1.8
 
 - Add an option for defaultBlock to the multicall contract
