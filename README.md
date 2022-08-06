@@ -139,4 +139,4 @@ console.log('ETH balance of Address 3', balances[2]);
 
 ## License
 
-This project is licensed under the MIT License - Copyright (c) 2021 Dopex
+This project is licensed under the MIT License - Copyright (c) 2022 Dopex
