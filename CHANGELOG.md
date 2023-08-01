@@ -1,5 +1,9 @@
 # web3-multicall
 
+## 0.1.10
+
+- Update all dependencies
+
 ## 0.1.9
 
 - Move web3.js to a peer dependency
